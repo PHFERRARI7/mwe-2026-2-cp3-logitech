@@ -2,6 +2,7 @@ from datetime import timedelta
 from decimal import Decimal
 
 TETO_VAREJO = Decimal("500.00")
+TETO_CORPORATIVO = Decimal("2000.00")
 
 
 def calcular_credito(tipo_cliente, frete, atraso):
@@ -13,4 +14,8 @@ def calcular_credito(tipo_cliente, frete, atraso):
         percentual = Decimal("0.10")
     else:
         return Decimal("0.00")
-    return min((frete * percentual).quantize(Decimal("0.01")), TETO_VAREJO)
+    teto = TETO_VAREJO
+    if tipo_cliente == "CORPORATIVO":
+        percentual = percentual * 2
+        teto = TETO_CORPORATIVO
+    return min((frete * percentual).quantize(Decimal("0.01")), teto)
