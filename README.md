@@ -7,8 +7,8 @@ Prof. José Romualdo · Checkpoint 3 · 27/10/2026 · Atividade em dupla · Dura
 
 | Nome | RM |
 |---|---|
-| Pedro | 559912 |
-| (preencher: integrante 2) | (RM) |
+| Pedro Henrique Batista Ferrari | 559912 |
+| Pedro Chamusca de Mello | 559632 |
 
 ## Contexto
 

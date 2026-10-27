@@ -94,7 +94,7 @@ ambas). A garantia real é:
    índice único em `credito_origem_id`. Assim, se a Garantia cair entre gravar o crédito e emitir
    a nota, a retomada (status `PENDENTE_NOTA`) pode repetir a chamada sem emitir nota duas vezes.
 
-Teste que prova: CT17 (duplicata sequencial) e CT18 (duplicatas concorrentes) no plano de testes.
+Teste que prova: CT18 (duplicata sequencial) e CT19 (duplicatas concorrentes) no plano de testes
 
 ## Numeração das notas de crédito (RF06 e RNF03)
 
@@ -108,7 +108,7 @@ Teste que prova: CT17 (duplicata sequencial) e CT18 (duplicatas concorrentes) no
   **pode deixar buracos** se uma transação for desfeita depois do `nextval`. Se a exigência fiscal
   for numeração sem buracos, troca-se por uma linha de contador com `SELECT ... FOR UPDATE`, que
   serializa as emissões (mais lenta, ainda dentro do RNF02).
-- Prova: CT18 dispara 1.000 emissões concorrentes e confere 1.000 números distintos.
+Prova: CT20 dispara 1.000 emissões concorrentes e confere 1.000 números distintos
 
 ## Execução em contêineres (RNF04)
 
