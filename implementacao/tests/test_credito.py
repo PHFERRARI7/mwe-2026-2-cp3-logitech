@@ -17,3 +17,7 @@ def test_ct01_varejo_atraso_abaixo_da_tolerancia_nao_gera_credito():
 
 def test_ct02_varejo_atraso_de_exatas_2h_ainda_e_tolerancia():
     assert calcular_credito("VAREJO", FRETE, atraso(2, 0)) == Decimal("0.00")
+
+
+def test_ct03_varejo_acima_de_2h_recebe_10_por_cento_do_frete():
+    assert calcular_credito("VAREJO", FRETE, atraso(2, 1)) == Decimal("30.00")
