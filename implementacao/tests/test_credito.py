@@ -42,3 +42,16 @@ def test_ct07_varejo_acima_de_72h_recebe_50_por_cento():
 def test_ct08_varejo_credito_nunca_passa_do_teto_de_500():
     # 50% de R$ 2.000,00 seria R$ 1.000,00
     assert calcular_credito("VAREJO", Decimal("2000.00"), atraso(100)) == Decimal("500.00")
+
+
+def test_ct09_corporativo_tolerancia_de_2h_nao_dobra():
+    assert calcular_credito("CORPORATIVO", FRETE, atraso(2, 0)) == Decimal("0.00")
+
+
+def test_ct10_corporativo_percentuais_dobram_acima_de_2h():
+    assert calcular_credito("CORPORATIVO", FRETE, atraso(2, 1)) == Decimal("60.00")
+
+
+def test_ct11_corporativo_credito_nunca_passa_do_teto_de_2000():
+    # 100% de R$ 4.000,00 seria R$ 4.000,00
+    assert calcular_credito("CORPORATIVO", Decimal("4000.00"), atraso(72, 1)) == Decimal("2000.00")
