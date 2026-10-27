@@ -29,3 +29,11 @@ def test_ct04_varejo_24h_exatas_continua_na_faixa_de_10_por_cento():
 
 def test_ct05_varejo_acima_de_24h_recebe_25_por_cento():
     assert calcular_credito("VAREJO", FRETE, atraso(24, 1)) == Decimal("75.00")
+
+
+def test_ct06_varejo_72h_exatas_continua_na_faixa_de_25_por_cento():
+    assert calcular_credito("VAREJO", FRETE, atraso(72, 0)) == Decimal("75.00")
+
+
+def test_ct07_varejo_acima_de_72h_recebe_50_por_cento():
+    assert calcular_credito("VAREJO", FRETE, atraso(72, 1)) == Decimal("150.00")
