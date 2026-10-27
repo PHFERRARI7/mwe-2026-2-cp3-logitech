@@ -3,6 +3,10 @@ from decimal import Decimal
 
 
 def calcular_credito(tipo_cliente, frete, atraso):
-    if atraso > timedelta(hours=2):
-        return (frete * Decimal("0.10")).quantize(Decimal("0.01"))
-    return Decimal("0.00")
+    if atraso > timedelta(hours=24):
+        percentual = Decimal("0.25")
+    elif atraso > timedelta(hours=2):
+        percentual = Decimal("0.10")
+    else:
+        return Decimal("0.00")
+    return (frete * percentual).quantize(Decimal("0.01"))
