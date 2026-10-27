@@ -37,3 +37,8 @@ def test_ct06_varejo_72h_exatas_continua_na_faixa_de_25_por_cento():
 
 def test_ct07_varejo_acima_de_72h_recebe_50_por_cento():
     assert calcular_credito("VAREJO", FRETE, atraso(72, 1)) == Decimal("150.00")
+
+
+def test_ct08_varejo_credito_nunca_passa_do_teto_de_500():
+    # 50% de R$ 2.000,00 seria R$ 1.000,00
+    assert calcular_credito("VAREJO", Decimal("2000.00"), atraso(100)) == Decimal("500.00")
